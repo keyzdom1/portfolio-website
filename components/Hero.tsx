@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowRight, Download, GraduationCap, Mail, Sparkles } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/SocialIcons";
+import Typewriter from "@/components/Typewriter";
 
 const stats = [
   { value: "4+", label: "Years of experience" },
@@ -100,9 +101,9 @@ export default function Hero() {
         transition={{ duration: 0.7, delay: 0.4 }}
         className="mt-6 max-w-2xl text-lg text-muted"
       >
-        I build user-friendly, responsive websites and web applications using
-        TypeScript, Next.js, Python and FastAPI — turning designs into interactive
-        interfaces that solve real-world problems with clean, efficient code.
+        <Typewriter
+          text="I build user-friendly, responsive websites and web applications using TypeScript, Next.js, Python and FastAPI - turning designs into interactive interfaces that solve real-world problems with clean, efficient code."
+        />
       </motion.p>
 
       <motion.div
