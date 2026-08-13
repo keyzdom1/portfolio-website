@@ -1,8 +1,8 @@
 ﻿import type { Metadata } from "next";
+import Image from "next/image";
 import {
-  User,
+  Briefcase,
   GraduationCap,
-  Coffee,
   MapPin,
   Languages,
   Code2,
@@ -70,7 +70,11 @@ const skillGroups = [
 ];
 
 const facts = [
-  { Icon: Coffee, label: "Powered by", value: "Curiosity & clean code" },
+  {
+    Icon: Briefcase,
+    label: "Current role",
+    value: "Lecturer, National Open University of Nigeria",
+  },
   { Icon: MapPin, label: "Based in", value: "Lagos, Nigeria" },
   {
     Icon: GraduationCap,
@@ -93,12 +97,20 @@ export default function AboutPage() {
         <Reveal direction="right">
           <div className="glass-card rounded-3xl p-8">
             <div className="mb-6 flex items-center gap-4">
-              <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-fuchsia-500 shadow-lg shadow-indigo-500/30">
-                <User className="h-8 w-8 text-white" />
-              </span>
+              <div className="shrink-0 rounded-2xl bg-gradient-to-br from-indigo-500 via-fuchsia-500 to-rose-400 p-1 shadow-lg shadow-indigo-500/30">
+                <Image
+                  src="/profile_pic.jpeg"
+                  alt="Kingsley Nyoyoko"
+                  width={96}
+                  height={96}
+                  className="h-20 w-20 rounded-xl object-cover"
+                />
+              </div>
               <div>
                 <h2 className="text-2xl font-bold">Kingsley Nyoyoko</h2>
-                <p className="text-sm text-soft">Software Engineer</p>
+                <p className="text-sm text-soft">
+                  Software Engineer · Lecturer, National Open University of Nigeria
+                </p>
               </div>
             </div>
 

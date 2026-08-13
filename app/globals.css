@@ -89,7 +89,7 @@ html.light ::-webkit-scrollbar-track {
 }
 
 html.light .text-gradient {
-  background: linear-gradient(120deg, #4f46e5, #9333ea, #d946ef);
+  background-image: linear-gradient(120deg, #4f46e5, #9333ea, #d946ef);
 }
 
 .glass-card {

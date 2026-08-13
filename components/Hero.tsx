@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { ArrowRight, Download, Mail, Sparkles } from "lucide-react";
+import { ArrowRight, Download, GraduationCap, Mail, Sparkles } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/SocialIcons";
 
 const stats = [
@@ -38,6 +39,33 @@ export default function Hero() {
         Available for freelance work
       </motion.div>
 
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.05 }}
+        className="relative mb-8"
+      >
+        <motion.div
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <div
+            aria-hidden
+            className="glow-indigo absolute inset-0 -z-10 scale-150 rounded-full blur-3xl"
+          />
+          <div className="rounded-full bg-gradient-to-br from-indigo-500 via-fuchsia-500 to-rose-400 p-1 shadow-xl shadow-indigo-500/30">
+            <Image
+              src="/profile_pic.jpeg"
+              alt="Kingsley Nyoyoko"
+              width={176}
+              height={176}
+              priority
+              className="h-44 w-44 rounded-full object-cover"
+            />
+          </div>
+        </motion.div>
+      </motion.div>
+
       <motion.h1
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -54,6 +82,16 @@ export default function Hero() {
         className="mt-5 text-2xl font-medium text-strong sm:text-3xl"
       >
         <span className="text-gradient font-semibold">Software Engineer</span>
+      </motion.p>
+
+      <motion.p
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.32 }}
+        className="tint-emerald mt-4 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm font-medium"
+      >
+        <GraduationCap className="h-4 w-4" />
+        Lecturer · National Open University of Nigeria
       </motion.p>
 
       <motion.p
