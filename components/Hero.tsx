@@ -151,6 +151,7 @@ export default function Hero() {
         ))}
         <a
           href="/resume.pdf"
+          download
           className="inline-flex items-center gap-2 rounded-full bg-surface px-5 py-2.5 text-sm text-muted ring-1 ring-line transition-all hover:-translate-y-1 hover:bg-surface-strong hover:text-foreground"
         >
           <Download className="h-4 w-4" />
