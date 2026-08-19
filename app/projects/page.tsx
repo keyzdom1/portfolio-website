@@ -13,6 +13,15 @@ export const metadata: Metadata = {
 
 const projects = [
   {
+    title: "SkillMatch",
+    description:
+      "AI-powered internship matching platform — build your profile once and get ranked matches against real opportunities.",
+    tags: ["Next.js", "TypeScript", "AI", "Tailwind CSS"],
+    gradient: "from-cyan-500 to-blue-500",
+    stars: 0,
+    demo: "https://skillmatch-kohl.vercel.app/",
+  },
+  {
     title: "PulseBoard Analytics",
     description:
       "Real-time analytics dashboard with streaming charts, a custom query builder, team workspaces, and alerting.",
@@ -97,7 +106,7 @@ export default function ProjectsPage() {
                     <GitHubIcon className="h-4 w-4" />
                   </a>
                   <a
-                    href="https://example.com"
+                    href={p.demo ?? "https://example.com"}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${p.title} live demo`}
@@ -123,10 +132,12 @@ export default function ProjectsPage() {
               </div>
 
               <div className="relative mt-4 flex items-center justify-between border-t border-line-soft pt-4 text-xs text-soft">
-                <span className="inline-flex items-center gap-1">
-                  <Star className="h-3.5 w-3.5 text-amber-400/70" />
-                  {p.stars}
-                </span>
+                {p.stars > 0 && (
+                  <span className="inline-flex items-center gap-1">
+                    <Star className="h-3.5 w-3.5 text-amber-400/70" />
+                    {p.stars}
+                  </span>
+                )}
                 <Link
                   href="/contact"
                   className="link-accent font-medium"
