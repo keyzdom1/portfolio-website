@@ -14,6 +14,14 @@ export const metadata: Metadata = {
 
 const featured = [
   {
+    title: "SkillMatch",
+    description:
+      "AI-powered internship matching platform — build your profile once and get ranked matches against real opportunities.",
+    tags: ["Next.js", "TypeScript", "AI", "Tailwind CSS"],
+    gradient: "from-cyan-500 to-blue-500",
+    demo: "https://skillmatch-kohl.vercel.app/",
+  },
+  {
     title: "PulseBoard Analytics",
     description:
       "Real-time analytics dashboard with streaming charts, custom query builder, and team workspaces.",
@@ -50,13 +58,10 @@ export default function Home() {
           title="Projects that make an impact"
           subtitle="A hand-picked selection of things I've built recently. See the full gallery on the projects page."
         />
-        <div className="grid gap-6 md:grid-cols-3">
-          {featured.map((p, i) => (
-            <Reveal key={p.title} delay={i * 0.12}>
-              <Link
-                href="/projects"
-                className="glass-card group flex h-full flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/10"
-              >
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {featured.map((p, i) => {
+            const card = (
+              <>
                 <div
                   className={`mb-5 h-1.5 w-14 rounded-full bg-gradient-to-r ${p.gradient} transition-all duration-300 group-hover:w-24`}
                 />
@@ -73,12 +78,32 @@ export default function Home() {
                   ))}
                 </div>
                 <span className="link-accent mt-6 inline-flex items-center gap-1 text-sm font-medium">
-                  View details
+                  {p.demo ? "Visit site" : "View details"}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
-              </Link>
-            </Reveal>
-          ))}
+              </>
+            );
+            const cardClasses =
+              "glass-card group flex h-full flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/10";
+            return (
+              <Reveal key={p.title} delay={i * 0.12}>
+                {p.demo ? (
+                  <a
+                    href={p.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cardClasses}
+                  >
+                    {card}
+                  </a>
+                ) : (
+                  <Link href="/projects" className={cardClasses}>
+                    {card}
+                  </Link>
+                )}
+              </Reveal>
+            );
+          })}
         </div>
       </section>
     </div>

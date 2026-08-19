@@ -83,7 +83,20 @@ export default function ProjectsPage() {
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((p, i) => (
           <Reveal key={p.title} delay={(i % 3) * 0.1}>
-            <article className="glass-card group relative flex h-full flex-col overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:border-line-strong hover:shadow-2xl hover:shadow-indigo-500/10">
+            <article
+              onClick={() =>
+                p.demo && window.open(p.demo, "_blank", "noopener,noreferrer")
+              }
+              onKeyDown={(e) => {
+                if (p.demo && (e.key === "Enter" || e.key === " ")) {
+                  e.preventDefault();
+                  window.open(p.demo, "_blank", "noopener,noreferrer");
+                }
+              }}
+              role={p.demo ? "link" : undefined}
+              tabIndex={p.demo ? 0 : undefined}
+              className="glass-card group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:border-line-strong hover:shadow-2xl hover:shadow-indigo-500/10"
+            >
               <div
                 aria-hidden
                 className={`absolute -top-16 -right-16 h-40 w-40 rounded-full bg-gradient-to-br ${p.gradient} opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-30`}
@@ -101,6 +114,7 @@ export default function ProjectsPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${p.title} source on GitHub`}
+                    onClick={(e) => e.stopPropagation()}
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-soft transition-all hover:bg-surface-strong hover:text-foreground"
                   >
                     <GitHubIcon className="h-4 w-4" />
@@ -110,6 +124,7 @@ export default function ProjectsPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${p.title} live demo`}
+                    onClick={(e) => e.stopPropagation()}
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface text-soft transition-all hover:bg-surface-strong hover:text-foreground"
                   >
                     <ExternalLink className="h-4 w-4" />
@@ -140,6 +155,7 @@ export default function ProjectsPage() {
                 )}
                 <Link
                   href="/contact"
+                  onClick={(e) => e.stopPropagation()}
                   className="link-accent font-medium"
                 >
                   Want something like this?
