@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Heart } from "lucide-react";
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/SocialIcons";
 
 const socials = [
@@ -29,10 +28,6 @@ export default function Footer() {
             </a>
           ))}
         </div>
-        <p className="flex items-center gap-1.5 text-sm text-soft">
-          Built with <Heart className="h-3.5 w-3.5 fill-rose-400 text-rose-400" /> Next.js
-          &amp; Motion
-        </p>
       </div>
       <div className="mt-4 text-center text-xs text-faint">
         <Link href="/" className="transition-colors hover:text-muted">
