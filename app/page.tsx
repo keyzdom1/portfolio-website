@@ -106,6 +106,38 @@ export default function Home() {
           })}
         </div>
       </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+        <SectionHeading
+          eyebrow="Live Preview"
+          title="Try SkillMatch right here"
+          subtitle="A live, interactive preview of my internship matching platform — build your profile and get ranked matches."
+        />
+        <Reveal>
+          <div className="glass-card overflow-hidden rounded-2xl">
+            <div className="flex items-center justify-between border-b border-line-soft px-5 py-3">
+              <p className="font-mono text-xs text-soft">
+                skillmatch-kohl.vercel.app
+              </p>
+              <a
+                href="https://skillmatch-kohl.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-accent inline-flex items-center gap-1 text-sm font-medium"
+              >
+                Open full site
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+            <iframe
+              src="https://skillmatch-kohl.vercel.app/"
+              title="SkillMatch live preview"
+              className="h-[600px] w-full bg-white"
+              loading="lazy"
+            />
+          </div>
+        </Reveal>
+      </section>
     </div>
   );
 }

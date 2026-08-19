@@ -38,14 +38,38 @@ const socials = [
 export default function ContactPage() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSending(true);
-    setTimeout(() => {
-      setSending(false);
+    setError(null);
+
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        const body = await res.json().catch(() => null);
+        throw new Error(body?.error ?? "Failed to send your message.");
+      }
+
       setSent(true);
-    }, 1200);
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Failed to send your message. Please try again.",
+      );
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -129,7 +153,10 @@ export default function ContactPage() {
                   </p>
                   <button
                     type="button"
-                    onClick={() => setSent(false)}
+                    onClick={() => {
+                      setSent(false);
+                      setError(null);
+                    }}
                     className="mt-8 rounded-full border border-line bg-surface px-6 py-2.5 text-sm text-strong transition-all hover:bg-surface-strong hover:text-foreground"
                   >
                     Send another message
@@ -198,6 +225,15 @@ export default function ContactPage() {
                       className="w-full resize-none rounded-xl border border-line bg-surface px-4 py-3 text-sm text-foreground placeholder:text-faint outline-none transition-all focus:border-indigo-400/60 focus:ring-2 focus:ring-indigo-500/20"
                     />
                   </div>
+
+                  {error && (
+                    <p
+                      role="alert"
+                      className="rounded-xl border border-rose-400/40 bg-rose-500/10 px-4 py-3 text-sm text-rose-300"
+                    >
+                      {error}
+                    </p>
+                  )}
 
                   <motion.button
                     type="submit"
