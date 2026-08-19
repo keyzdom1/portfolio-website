@@ -1,15 +1,10 @@
-﻿import type { Metadata } from "next";
+﻿"use client";
+
 import Link from "next/link";
 import { ExternalLink, Folder, Star } from "lucide-react";
 import { GitHubIcon } from "@/components/SocialIcons";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-
-export const metadata: Metadata = {
-  title: "Projects",
-  description:
-    "A selection of projects built by Kingsley Nyoyoko - web applications, tools, and teaching resources.",
-};
 
 const projects = [
   {
