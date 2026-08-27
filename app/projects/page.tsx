@@ -17,6 +17,15 @@ const projects = [
     demo: "https://skillmatch-kohl.vercel.app/",
   },
   {
+    title: "ElectroMart IMS",
+    description:
+      "Full-stack inventory & sales management system — track products, monitor low stock, manage customers, suppliers, and generate sales insights.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
+    gradient: "from-emerald-500 to-green-500",
+    stars: 0,
+    demo: "https://electro-inventory.vercel.app/",
+  },
+  {
     title: "PulseBoard Analytics",
     description:
       "Real-time analytics dashboard with streaming charts, a custom query builder, team workspaces, and alerting.",
