@@ -30,6 +30,14 @@ const featured = [
     demo: "https://electro-inventory.vercel.app/",
   },
   {
+    title: "FASHION. Storefront",
+    description:
+      "Bold, trend-forward clothing storefront with category collections and a full add-to-cart flow.",
+    tags: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+    gradient: "from-pink-500 to-purple-500",
+    demo: "https://frontend-eight-dun-68.vercel.app/",
+  },
+  {
     title: "PulseBoard Analytics",
     description:
       "Real-time analytics dashboard with streaming charts, custom query builder, and team workspaces.",

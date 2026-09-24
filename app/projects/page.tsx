@@ -26,6 +26,15 @@ const projects = [
     demo: "https://electro-inventory.vercel.app/",
   },
   {
+    title: "FASHION. Storefront",
+    description:
+      "Bold, trend-forward clothing storefront — shop category collections, browse products, and add items to your cart with free shipping over ₦100,000.",
+    tags: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+    gradient: "from-pink-500 to-purple-500",
+    stars: 0,
+    demo: "https://frontend-eight-dun-68.vercel.app/",
+  },
+  {
     title: "PulseBoard Analytics",
     description:
       "Real-time analytics dashboard with streaming charts, a custom query builder, team workspaces, and alerting.",
