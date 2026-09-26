@@ -10,7 +10,7 @@ import Typewriter from "@/components/Typewriter";
 const stats = [
   { value: "4+", label: "Years of experience" },
   { value: "200+", label: "Students mentored" },
-  { value: "6", label: "Certifications" },
+  { value: "12", label: "Certifications" },
   { value: "2", label: "Institutions taught at" },
 ];
 

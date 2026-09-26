@@ -6,10 +6,20 @@ import SectionHeading from "@/components/SectionHeading";
 export const metadata: Metadata = {
   title: "Certifications",
   description:
-    "Certifications earned by Kingsley Nyoyoko - web development, AI, and project management credentials.",
+    "Certifications earned by Kingsley Nyoyoko - networking, web development, AI, and project management credentials.",
 };
 
-const certifications = [
+type Certification = {
+  title: string;
+  issuer: string;
+  date: string;
+  id: string;
+  file?: string;
+  Icon: typeof Award;
+  accent: string;
+};
+
+const certifications: Certification[] = [
   {
     title: "Responsive Web Design",
     issuer: "FreeCodeCamp",
@@ -58,6 +68,60 @@ const certifications = [
     Icon: Trophy,
     accent: "from-fuchsia-400 to-rose-500",
   },
+  {
+    title: "Networking Basics",
+    issuer: "Cisco Networking Academy",
+    date: "2025",
+    id: "CNA-NB-007",
+    file: "/certificates/networking-basics.pdf",
+    Icon: Award,
+    accent: "from-sky-400 to-cyan-500",
+  },
+  {
+    title: "Networking Devices and Initial Configuration",
+    issuer: "Cisco Networking Academy",
+    date: "2025",
+    id: "CNA-ND-008",
+    file: "/certificates/networking-devices-and-initial-configuration.pdf",
+    Icon: Trophy,
+    accent: "from-cyan-400 to-teal-500",
+  },
+  {
+    title: "Network Addressing and Basic Troubleshooting",
+    issuer: "Cisco Networking Academy",
+    date: "2025",
+    id: "CNA-NA-009",
+    file: "/certificates/network-addressing-and-basic-troubleshooting.pdf",
+    Icon: BadgeCheck,
+    accent: "from-teal-400 to-emerald-500",
+  },
+  {
+    title: "Network Support and Security",
+    issuer: "Cisco Networking Academy",
+    date: "2025",
+    id: "CNA-NS-010",
+    file: "/certificates/network-support-and-security.pdf",
+    Icon: Award,
+    accent: "from-emerald-400 to-green-500",
+  },
+  {
+    title: "Network Technician Career Path",
+    issuer: "Cisco Networking Academy",
+    date: "2025",
+    id: "CNA-NT-011",
+    file: "/certificates/network-technician-career-path.pdf",
+    Icon: Trophy,
+    accent: "from-indigo-400 to-blue-500",
+  },
+  {
+    title: "Learning Subnetting",
+    issuer: "Cisco Networking Academy",
+    date: "2025",
+    id: "CNA-SUB-012",
+    file: "/certificates/learning-subnetting.pdf",
+    Icon: BadgeCheck,
+    accent: "from-rose-400 to-pink-500",
+  },
 ];
 
 export default function CertificationsPage() {
@@ -98,12 +162,23 @@ export default function CertificationsPage() {
 
               <div className="mt-5 flex items-end justify-between border-t border-line-soft pt-4">
                 <span className="font-mono text-xs text-faint">ID: {cert.id}</span>
-                <button
-                  type="button"
-                  className="tint-indigo rounded-full border px-4 py-1.5 text-xs font-medium transition-all hover:brightness-110"
-                >
-                  Verify
-                </button>
+                {cert.file ? (
+                  <a
+                    href={cert.file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="tint-indigo rounded-full border px-4 py-1.5 text-xs font-medium transition-all hover:brightness-110"
+                  >
+                    View certificate
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    className="tint-indigo rounded-full border px-4 py-1.5 text-xs font-medium transition-all hover:brightness-110"
+                  >
+                    Verify
+                  </button>
+                )}
               </div>
             </article>
           </Reveal>
